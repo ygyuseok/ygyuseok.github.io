@@ -19,9 +19,17 @@
     <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
     <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
-    <!-- custom.css-->
+    <!--(추가) custom.css -->
     <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
 
+    <!--(추가) Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--(추가) 웹폰트 추가 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--(추가) syntax.css -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
 
     <!-- highlight.js -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
@@ -55,6 +63,12 @@
 
 
 python의 기본.
+
+function syntaxHighlight(code) {
+   var foo = 'Hello World';
+   var bar = 100;
+}
+
 " />
     <meta property="og:url" content="https://ygyuseok.github.io/python-basic" />
     <meta property="og:image" content="https://ygyuseok.github.io/assets/built/images/python-logo.jpg" />
@@ -72,6 +86,12 @@ python의 기본.
 
 
 python의 기본.
+
+function syntaxHighlight(code) {
+   var foo = 'Hello World';
+   var bar = 100;
+}
+
 " />
     <meta name="twitter:url" content="https://ygyuseok.github.io/" />
     <meta name="twitter:image" content="https://ygyuseok.github.io/assets/built/images/python-logo.jpg" />
@@ -111,6 +131,12 @@ python의 기본.
 
 
 python의 기본.
+
+function syntaxHighlight(code) {
+   var foo = 'Hello World';
+   var bar = 100;
+}
+
 "
 }
     </script>
@@ -168,7 +194,8 @@ into the {body} of the default.hbs template -->
             
         </div>
         
-            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+            <!-- (추가) Subscribe 버튼을 Search 버튼으로 -->
+            <a class="subscribe-button" href="#subscribe">Search</a>
         
     </div>
 </nav>
@@ -215,6 +242,12 @@ into the {body} of the default.hbs template -->
 
 <p>python의 기본.</p>
 
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">syntaxHighlight</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s1">'Hello World'</span><span class="p">;</span>
+   <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
                 </div>
             </section>
 
@@ -225,16 +258,25 @@ into the {body} of the default.hbs template -->
                 <section class="subscribe-form">
                     <h3 class="subscribe-form-title">Subscribe to 데이터 사이언티스트 도전기</h3>
                     <p>Get the latest posts delivered right to your inbox</p>
-                    <form method="post" action="/subscribe/" class="">
-    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
 
     <div class="form-group">
-        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+        <input class="subscribe-email" onkeyup="myFunc()"
+               id="searchtext" type="text" name="searchtext"
+               placeholder="Search..." />
     </div>
-    <button class="" type="submit" disabled><span>Subscribe</span></button>
-    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
-</form>
-
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
                 </section>
             
             -->
@@ -447,18 +489,28 @@ into the {body} of the default.hbs template -->
             <a class="subscribe-overlay-close" href="#"></a>
             <div class="subscribe-overlay-content">
                 
-                <h1 class="subscribe-overlay-title">Subscribe to 데이터 사이언티스트 도전기</h1>
-                <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
-                <form method="post" action="/subscribe/" class="">
-    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+                <h1 class="subscribe-overlay-title">Search 데이터 사이언티스트 도전기</h1>
+                <p class="subscribe-overlay-description">
+                    lunr.js를 이용한 posts 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
 
     <div class="form-group">
-        <input class="subscribe-email" type="email" name="email"  placeholder="youremail@example.com" />
+        <input class="subscribe-email" onkeyup="myFunc()"
+               id="searchtext" type="text" name="searchtext"
+               placeholder="Search..." />
     </div>
-    <button class="" type="submit" disabled><span>Subscribe</span></button>
-    <script type="text/javascript">(function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');</script>
-</form>
-
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
             </div>
         </div>
     
