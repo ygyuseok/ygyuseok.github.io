@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
   <link href="https://ygyuseok.github.io/author/ygyuseok/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ygyuseok.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-05-04T20:12:42+09:00</updated>
+  <updated>2021-05-04T21:43:14+09:00</updated>
   <id>https://ygyuseok.github.io/author/ygyuseok/feed.xml</id>
 
   
@@ -41,7 +41,15 @@
     &lt;li&gt;&lt;a href=&quot;./python-control-statement&quot;&gt;Python 강좌(2) - Python 제어문&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;python 제어문&lt;/p&gt;</content>
+&lt;p&gt;python 제어문&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/ygyuseok/12f2dc43643630b508f771464f136364.js&quot;&gt;
+&lt;/script&gt;
+
+&lt;p&gt;안녕하세요&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/lonekorean/8a6a3c508b7c71deb4070d3314900b1f.js&quot;&gt;
+&lt;/script&gt;</content>
 
       
       
